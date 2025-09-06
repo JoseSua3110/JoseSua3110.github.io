@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pregunta especial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #fff0f5;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2em;
+      color: #c2185b;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .si {
+      background-color: #ff4081;
+      color: white;
+    }
+    .no {
+      background-color: #757575;
+      color: white;
+    }
+    #resultado {
+      margin-top: 30px;
+      font-size: 1.5em;
+      color: #4a148c;
+    }
+    img {
+      margin-top: 20px;
+      max-width: 250px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>¿Quieres ser mi novia? 💖</h1>
+  <button class="si" onclick="decirSi()">Sí</button>
+  <button class="no" onclick="decirNo()">No</button>
+
+  <div id="resultado"></div>
+
+  <!-- Script de confeti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  
+  <script>
+    function decirSi() {
+      document.getElementById("resultado").innerHTML = `
+        <p>😍 Ahora somos novios mi amor, la pareja más feliz del mundo 💕</p>
+        <img src="teamo.jpeg" alt="Mi amor">
+
+      `;
+      
+      // Lanzar confeti 🎉
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+    }
+
+    function decirNo() {
+      const seguro = confirm("¿Estás segura de que quieres decir que no? 🥺");
+      if (!seguro) {
+        document.getElementById("resultado").innerHTML = "<p>Sabía que estabas dudando 😘💕</p>";
+      } else {
+        alert("Igual te amo, pero pienso seguir intentando 💖");
+      }
+    }
+  </script>
+</body>
+</html>
